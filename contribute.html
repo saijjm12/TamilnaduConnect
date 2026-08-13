@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Village Story — Connect India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --indigo:#2F4A34; --marigold:#D9A441; --ivory:#FBF6E9; --rani:#A8532F; --leaf:#4F7942; --ink:#23241C; --line:rgba(47,74,52,0.15); --radius:10px; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--ivory); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6;}
+  a{color:var(--marigold);}
+  .wrap{max-width:640px; margin:0 auto; padding:50px 28px 100px;}
+  .back{font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--indigo); opacity:0.7; text-decoration:none;}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:0.76rem; color:var(--rani); text-transform:uppercase; letter-spacing:0.1em; margin-top:26px;}
+  h1{font-family:'Sora',sans-serif; font-weight:700; font-size:2rem; color:var(--indigo); margin-top:10px;}
+  .sub{margin-top:12px; opacity:0.75; font-size:1rem;}
+
+  form{margin-top:36px; background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); padding:32px;}
+  label{display:block; font-family:'Sora',sans-serif; font-weight:600; font-size:0.9rem; color:var(--indigo); margin-top:22px; margin-bottom:8px;}
+  label:first-of-type{margin-top:0;}
+  .hint{font-size:0.8rem; opacity:0.6; font-weight:400; margin-top:2px;}
+  input[type="text"], input[type="url"], select, textarea{
+    width:100%; padding:12px 14px; border:1.5px solid var(--line); border-radius:8px;
+    font-family:'Inter'; font-size:0.95rem; background:var(--ivory); color:var(--ink);
+  }
+  textarea{min-height:110px; resize:vertical;}
+  input[type="file"]{
+    width:100%; padding:12px 14px; border:1.5px dashed var(--line); border-radius:8px;
+    background:var(--ivory); font-family:'Inter'; font-size:0.88rem;
+  }
+  .file-note{font-size:0.78rem; opacity:0.55; margin-top:6px;}
+  button{
+    margin-top:30px; width:100%; padding:15px; border:none; border-radius:8px;
+    background:var(--marigold); color:#fff; font-family:'Sora',sans-serif; font-weight:700;
+    font-size:1rem; cursor:pointer;
+  }
+  button:hover{background:#c1922f;}
+  .privacy-note{margin-top:44px; padding:16px 18px; background:rgba(217,164,65,0.12); border-radius:8px; font-size:0.82rem; color:var(--indigo);}
+  .hidden{display:none;}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Back to Connect India</a>
+  <div class="eyebrow">Contribute</div>
+  <h1>Share your village story</h1>
+  <p class="sub">Got a photo or festival video from your village? Submit it here — approved stories may be featured on Connect India.</p>
+
+  <!--
+    This form uses Netlify Forms (no backend/database code required).
+    Netlify auto-detects this form at deploy time because of the data-netlify attribute.
+    Submissions (including uploaded photo files) appear in your Netlify dashboard
+    under: your project → Forms.
+  -->
+  <form name="village-story" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="village-story" />
+    <p class="hidden">
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+
+    <label for="name">Your name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="district">Village &amp; district</label>
+    <input type="text" id="district" name="district" placeholder="e.g. Kadayam, Tirunelveli District" required>
+
+    <label for="category">Category</label>
+    <select id="category" name="category">
+      <option value="agriculture">Agriculture</option>
+      <option value="rural-business">Rural Business</option>
+      <option value="culture-festival">Culture &amp; Festival</option>
+      <option value="famous-place">Famous Place</option>
+      <option value="community">Community</option>
+    </select>
+
+    <label for="photo">Upload a photo <span class="hint">(JPG/PNG, under 10MB)</span></label>
+    <input type="file" id="photo" name="photo" accept="image/png, image/jpeg">
+    <div class="file-note">Have a festival video instead of a photo? Upload it to YouTube or Instagram first, then paste the link below.</div>
+
+    <label for="video">Video link <span class="hint">(optional — YouTube, Instagram, etc.)</span></label>
+    <input type="url" id="video" name="video" placeholder="https://youtube.com/...">
+
+    <label for="story">Tell us about it</label>
+    <textarea id="story" name="story" placeholder="What's happening in the photo or video? What makes this place or moment special?" required></textarea>
+
+    <div data-netlify-recaptcha="true" style="margin-top:24px;"></div>
+
+    <button type="submit">Submit Story</button>
+  </form>
+
+  <div class="privacy-note">Submissions go directly to the site owner's Netlify dashboard for review before anything is published — nothing appears on the live site automatically.</div>
+</div>
+</body>
+</html>

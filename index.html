@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect India — Find Services, Businesses &amp; Jobs Near You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo: #2F4A34;
+    --indigo-soft: #3C5B41;
+    --marigold: #D9A441;
+    --ivory: #FBF6E9;
+    --rani: #A8532F;
+    --leaf: #4F7942;
+    --ink: #23241C;
+    --line: rgba(47,74,52,0.15);
+    --radius: 10px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Sora', sans-serif; font-weight:700; letter-spacing:-0.01em;}
+  .mono{font-family:'Space Mono', monospace;}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,248,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+  .logo{font-family:'Sora', sans-serif; font-weight:800; font-size:1.3rem; color:var(--indigo); display:flex; align-items:center; gap:4px;}
+  .logo span{color:var(--marigold);}
+  .nav-links{display:flex; gap:28px; font-size:0.92rem; font-weight:500;}
+  .nav-links a{opacity:0.75; transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{background:var(--indigo); color:var(--ivory); padding:10px 20px; border-radius:8px; font-size:0.88rem; font-weight:600;}
+  .nav-cta:hover{background:var(--indigo-soft);}
+
+  /* ===== Hero ===== */
+  .hero{
+    min-height:100vh; padding:120px 0 60px; position:relative; overflow:hidden;
+    display:flex; align-items:center;
+    transition:background 1s ease;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.4) 100%),
+      url('https://images.unsplash.com/photo-1600150806237-a7dffed6b53c?fm=jpg&q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+  }
+  .hero.time-morning{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.35) 100%),
+      url('https://images.unsplash.com/photo-1750691480641-ea618fa646ba?fm=jpg&q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+  }
+  .hero::before{
+    content:''; position:absolute; top:-120px; right:-120px; width:420px; height:420px;
+    background:radial-gradient(circle, rgba(217,164,65,0.20) 0%, transparent 70%);
+    z-index:1;
+  }
+  .hero-inner{max-width:720px; position:relative; z-index:2;}
+  .hero h1, .hero .eyebrow{color:#FFF6E6;}
+  .hero h1 span{color:#FFD98A;}
+  .hero p{color:rgba(255,246,230,0.92);}
+  .hero .eyebrow{background:rgba(0,0,0,0.3);}
+
+  .hero::after{
+    content:''; position:absolute; bottom:0; left:0; right:0; height:70px;
+    background:linear-gradient(to top, rgba(79,121,66,0.06), transparent);
+    z-index:1;
+  }
+  .eyebrow{
+    font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--rani); background:rgba(193,39,92,0.08); display:inline-flex; padding:6px 14px; border-radius:20px;
+    margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2.4rem, 5.4vw, 3.7rem); line-height:1.06; color:var(--indigo);}
+  .hero h1 span{color:var(--marigold);}
+  .hero p{margin-top:20px; font-size:1.08rem; max-width:520px; opacity:0.8;}
+
+  /* Search bar */
+  .search-bar{
+    margin-top:34px; background:#fff; border:1.5px solid var(--line); border-radius:var(--radius);
+    display:flex; align-items:stretch; box-shadow:0 12px 32px rgba(27,31,59,0.08);
+    overflow:hidden; max-width:640px;
+  }
+  .search-field{flex:1; padding:16px 18px; border:none; font-family:'Inter'; font-size:0.95rem; outline:none;}
+  .search-field.loc{flex:0 0 170px; border-left:1.5px solid var(--line);}
+  .search-btn{background:var(--marigold); color:#fff; border:none; padding:0 26px; font-weight:600; font-size:0.95rem; cursor:pointer;}
+  .search-btn:hover{background:#d47a15;}
+  .trending{margin-top:14px; font-size:0.82rem; opacity:0.6; display:flex; gap:8px; flex-wrap:wrap; align-items:center;}
+  .trending span.tag{background:var(--indigo); color:var(--ivory); padding:4px 10px; border-radius:14px; font-size:0.76rem;}
+
+  /* ===== Category grid ===== */
+  section{padding:70px 0;}
+  .section-head{max-width:560px; margin-bottom:40px;}
+  .section-label{font-family:'Space Mono', monospace; font-size:0.76rem; color:var(--rani); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem); color:var(--indigo);}
+
+  .cat-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:16px;}
+  .cat-card{
+    background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); padding:22px 18px;
+    transition:transform 0.15s, border-color 0.15s;
+  }
+  .cat-card:hover{transform:translateY(-3px); border-color:var(--marigold);}
+  .cat-icon{
+    width:42px; height:42px; border-radius:10px; background:rgba(232,135,30,0.12);
+    display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:14px;
+  }
+  .cat-name{font-family:'Sora', sans-serif; font-weight:600; font-size:0.98rem; color:var(--indigo);}
+  .cat-count{font-size:0.78rem; opacity:0.55; margin-top:4px;}
+
+  /* ===== How it works ===== */
+  .how{background:var(--indigo); color:var(--ivory);}
+  .how .section-label{color:var(--marigold);}
+  .how .section-head h2{color:var(--ivory);}
+  .steps{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  .step{border-top:2px solid rgba(255,248,238,0.2); padding-top:20px;}
+  .step-num{font-family:'Space Mono', monospace; color:var(--marigold); font-size:0.85rem;}
+  .step h3{margin-top:10px; font-size:1.15rem;}
+  .step p{margin-top:8px; font-size:0.9rem; opacity:0.7;}
+
+  /* ===== Featured listings ===== */
+  .listing-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px;}
+  .listing-card{background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:transform 0.15s;}
+  .listing-card:hover{transform:translateY(-3px);}
+  .listing-thumb{
+    height:140px; background:linear-gradient(135deg, var(--leaf) 0%, var(--indigo) 100%);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,248,238,0.6);
+    font-family:'Space Mono', monospace; font-size:0.72rem; text-align:center; padding:10px;
+  }
+  .listing-body{padding:18px;}
+  .listing-cat{font-family:'Space Mono', monospace; font-size:0.72rem; color:var(--rani); text-transform:uppercase;}
+  .listing-name{font-family:'Sora', sans-serif; font-weight:600; margin-top:6px; font-size:1.05rem; color:var(--indigo);}
+  .listing-meta{font-size:0.84rem; opacity:0.6; margin-top:6px;}
+  .listing-rating{margin-top:10px; font-size:0.82rem; color:var(--marigold); font-weight:600;}
+
+  /* ===== Stats ===== */
+  .stats-bar{background:var(--rani); color:var(--ivory); padding:44px 0;}
+  .stats-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;}
+  .stat-num{font-family:'Sora', sans-serif; font-weight:800; font-size:2.1rem;}
+  .stat-label{font-size:0.8rem; opacity:0.85; margin-top:4px;}
+
+  /* ===== List your business CTA ===== */
+  .cta-band{background:var(--marigold); border-radius:var(--radius); padding:48px 40px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+  .cta-band h2{color:var(--indigo); font-size:1.7rem; max-width:420px;}
+  .cta-band p{color:var(--indigo); opacity:0.75; margin-top:8px; max-width:420px;}
+  .btn-dark{background:var(--indigo); color:var(--ivory); padding:14px 28px; border-radius:8px; font-weight:600; font-size:0.95rem; display:inline-block; white-space:nowrap;}
+  .btn-dark:hover{background:var(--indigo-soft);}
+
+  /* ===== Village Stories ===== */
+  .stories{background:var(--indigo); color:var(--ivory); position:relative; overflow:hidden;}
+  .stories::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(217,164,65,0.10) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(217,164,65,0.08) 0%, transparent 45%);
+  }
+  .stories .section-label{color:var(--marigold);}
+  .stories .section-head h2{color:var(--ivory);}
+  .stories .section-head p{margin-top:10px; opacity:0.75; font-size:0.98rem;}
+  .village-banner{
+    width:100%; aspect-ratio:16/5; border-radius:var(--radius); overflow:hidden;
+    margin-bottom:40px; position:relative; border:1.5px solid rgba(251,246,233,0.15);
+    background-image:url('images/Village_bg.png');
+    background-size:cover;
+    background-position:center;
+  }
+  .village-banner svg{width:100%; height:100%; display:block;}
+  .story-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; position:relative;}
+  .story-card{background:rgba(251,246,233,0.06); border:1.5px solid rgba(251,246,233,0.15); border-radius:var(--radius); overflow:hidden; transition:transform 0.15s, border-color 0.15s;}
+  .story-card:hover{transform:translateY(-3px); border-color:var(--marigold);}
+  .story-thumb{
+    height:150px; display:flex; align-items:flex-end; padding:14px;
+    background:linear-gradient(160deg, var(--leaf) 0%, var(--indigo) 100%);
+  }
+  .story-village{font-family:'Space Mono', monospace; font-size:0.72rem; background:rgba(35,36,28,0.5); padding:4px 10px; border-radius:14px; color:var(--ivory); text-decoration:none;}
+  .story-village:hover{background:rgba(217,164,65,0.85); color:var(--indigo);}
+  .story-body{padding:18px;}
+  .story-tag{font-family:'Space Mono', monospace; font-size:0.7rem; color:var(--marigold); text-transform:uppercase; letter-spacing:0.08em;}
+  .story-title{display:block; font-family:'Sora', sans-serif; font-weight:600; margin-top:8px; font-size:1.05rem; line-height:1.3; color:var(--ivory); text-decoration:none;}
+  .story-title:hover{color:var(--marigold);}
+  .story-excerpt{font-size:0.86rem; opacity:0.7; margin-top:8px;}
+  .story-read{display:inline-block; font-size:0.82rem; color:var(--marigold); margin-top:14px; font-weight:600; text-decoration:none;}
+  .story-read:hover{text-decoration:underline;}
+
+  /* ===== Pricing ===== */
+  .pricing-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;}
+  .plan{background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); padding:32px 26px; position:relative; transition:transform 0.15s, border-color 0.15s;}
+  .plan:hover{transform:translateY(-3px);}
+  .plan.featured{border:2px solid var(--marigold); box-shadow:0 16px 36px rgba(232,135,30,0.14);}
+  .plan-badge{position:absolute; top:-13px; right:24px; background:var(--marigold); color:#fff; font-size:0.72rem; font-weight:700; padding:5px 12px; border-radius:20px; letter-spacing:0.04em;}
+  .plan-name{font-family:'Sora', sans-serif; font-weight:700; font-size:1.15rem; color:var(--indigo);}
+  .plan-price{font-family:'Sora', sans-serif; font-weight:800; font-size:2.1rem; color:var(--indigo); margin-top:12px;}
+  .plan-price span{font-family:'Inter'; font-weight:500; font-size:0.9rem; opacity:0.6;}
+  .plan-desc{font-size:0.85rem; opacity:0.65; margin-top:6px;}
+  .plan-features{list-style:none; margin-top:22px; display:flex; flex-direction:column; gap:12px;}
+  .plan-features li{font-size:0.88rem; padding-left:22px; position:relative; opacity:0.85;}
+  .plan-features li::before{content:'✓'; position:absolute; left:0; color:var(--leaf); font-weight:700;}
+  .plan-btn{display:block; text-align:center; margin-top:26px; padding:13px; border-radius:8px; font-weight:600; font-size:0.9rem; border:1.5px solid var(--indigo); color:var(--indigo);}
+  .plan-btn:hover{background:var(--indigo); color:#fff;}
+  .plan.featured .plan-btn{background:var(--marigold); border-color:var(--marigold); color:#fff;}
+  .plan.featured .plan-btn:hover{background:#d47a15;}
+
+  /* ===== Elsewhere / links ===== */
+  .link-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;}
+  .link-card{border:1.5px solid var(--line); border-radius:var(--radius); padding:22px; background:#fff; transition:border-color 0.15s, transform 0.15s;}
+  .link-card:hover{border-color:var(--marigold); transform:translateY(-2px);}
+  .link-kicker{font-family:'Space Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--leaf);}
+  .link-title{font-family:'Sora', sans-serif; font-size:1.1rem; font-weight:600; color:var(--indigo); margin-top:6px;}
+  .link-arrow{font-size:0.82rem; opacity:0.6; margin-top:8px;}
+
+  /* ===== Footer ===== */
+  footer{background:var(--indigo); color:rgba(255,248,238,0.7); padding:50px 0 26px;}
+  .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; padding-bottom:30px; border-bottom:1px solid rgba(255,248,238,0.15);}
+  .footer-logo{font-family:'Sora', sans-serif; color:var(--ivory); font-size:1.2rem; font-weight:800;}
+  .footer-logo span{color:var(--marigold);}
+  .footer-col h4{font-size:0.85rem; color:var(--ivory); margin-bottom:12px;}
+  .footer-col a{display:block; font-size:0.85rem; margin-bottom:8px; opacity:0.75;}
+  .footer-col a:hover{opacity:1;}
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:20px; font-size:0.78rem; opacity:0.6; flex-wrap:wrap; gap:10px;}
+
+  @media (max-width:760px){
+    .nav-links, .nav-cta{display:none;}
+    .search-bar{flex-direction:column;}
+    .search-field.loc{border-left:none; border-top:1.5px solid var(--line);}
+    .steps, .stats-grid, .footer-grid, .pricing-grid{grid-template-columns:1fr 1fr;}
+    .cta-band{flex-direction:column; align-items:flex-start;}
+  }
+  :focus-visible{outline:2px solid var(--rani); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;}}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Connect<span>India</span></div>
+    <nav class="nav-links">
+      <a href="#categories">Categories</a>
+      <a href="#listings">Listings</a>
+      <a href="#stories">Village Stories</a>
+      <a href="districts.html">38 Districts</a>
+      <a href="fm-radio.html">FM Radio</a>
+      <a href="contribute.html">Contribute</a>
+      <a href="#how">How It Works</a>
+      <a href="#elsewhere">Our Network</a>
+    </nav>
+    <a class="nav-cta" href="#list-business">List Your Business</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">20+ Categories · 500+ Cities · Rural &amp; Urban India</div>
+    <h1>Find anything, <span>anywhere</span> in India.</h1>
+    <p>From city services to village life — farmers, artisans, local businesses, and jobs. Search by category, discover agriculture &amp; rural stories, and connect directly with people near you.</p>
+    <div class="search-bar">
+      <input class="search-field" type="text" placeholder="What are you looking for? (e.g. plumber, CA, tutor)">
+      <input class="search-field loc" type="text" placeholder="City">
+      <button class="search-btn">Search</button>
+    </div>
+    <div class="trending">
+      <span>Trending:</span>
+      <span class="tag">Home Cleaning</span>
+      <span class="tag">Wedding Planners</span>
+      <span class="tag">CA Services</span>
+      <span class="tag">Packers &amp; Movers</span>
+    </div>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Browse</div>
+      <h2>Explore by category</h2>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="cat-icon">🌾</div><div class="cat-name">Agriculture &amp; Farming</div><div class="cat-count">2,900+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🏠</div><div class="cat-name">Home Services</div><div class="cat-count">3,200+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🏢</div><div class="cat-name">Real Estate</div><div class="cat-count">1,850+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">💼</div><div class="cat-name">Jobs</div><div class="cat-count">4,700+ open</div></div>
+      <div class="cat-card"><div class="cat-icon">⚖️</div><div class="cat-name">Legal &amp; Finance</div><div class="cat-count">960+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🎓</div><div class="cat-name">Education</div><div class="cat-count">2,100+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🩺</div><div class="cat-name">Health &amp; Wellness</div><div class="cat-count">1,400+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🎉</div><div class="cat-name">Events</div><div class="cat-count">870+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🚗</div><div class="cat-name">Automotive</div><div class="cat-count">1,120+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">💻</div><div class="cat-name">IT &amp; Digital</div><div class="cat-count">1,980+ listed</div></div>
+      <div class="cat-card"><div class="cat-icon">🍽️</div><div class="cat-name">Food &amp; Dining</div><div class="cat-count">2,650+ listed</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="stories" id="stories">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">From the Ground Up</div>
+      <h2>Village stories &amp; agriculture</h2>
+      <p>Real stories from farmers, artisans, and rural entrepreneurs building something in their village — because India isn't just its cities.</p>
+      <a href="contribute.html" target="_blank" rel="noopener" style="display:inline-block; margin-top:18px; padding:12px 24px; background:var(--marigold); color:#fff; border-radius:8px; font-family:'Sora',sans-serif; font-weight:600; font-size:0.9rem; text-decoration:none;">📷 Share Your Photo or Video →</a>
+    </div>
+
+    <div class="village-banner"></div>
+
+    <div class="story-grid">
+      <div class="story-card">
+        <div class="story-thumb"><a class="story-village" href="districts/tirunelveli.html" target="_blank" rel="noopener">📍 Tirunelveli District, Tamil Nadu</a></div>
+        <div class="story-body">
+          <div class="story-tag">Agriculture</div>
+          <a class="story-title" href="stories/tirunelveli.html" target="_blank" rel="noopener">How palmyra farmers turned a traditional harvest into a growing business</a>
+          <div class="story-excerpt">Nungu and palm jaggery producers are reaching buyers beyond their local market.</div>
+          <a class="story-read" href="stories/tirunelveli.html" target="_blank" rel="noopener">Read story →</a>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-thumb"><a class="story-village" href="districts/kanyakumari.html" target="_blank" rel="noopener">📍 Kanyakumari District, Tamil Nadu</a></div>
+        <div class="story-body">
+          <div class="story-tag">Agriculture</div>
+          <a class="story-title" href="stories/kanyakumari.html" target="_blank" rel="noopener">Coconut farmers on India's southern tip find a bigger market</a>
+          <div class="story-excerpt">A coastal farming community moves from raw copra sales to processed coconut products.</div>
+          <a class="story-read" href="stories/kanyakumari.html" target="_blank" rel="noopener">Read story →</a>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-thumb"><a class="story-village" href="districts/dindigul.html" target="_blank" rel="noopener">📍 Dindigul District, Tamil Nadu</a></div>
+        <div class="story-body">
+          <div class="story-tag">Rural Business</div>
+          <a class="story-title" href="stories/dindigul.html" target="_blank" rel="noopener">The lock-making town that modernized a century-old craft</a>
+          <div class="story-excerpt">Dindigul's famous lock artisans are listing their workshops online for the first time.</div>
+          <a class="story-read" href="stories/dindigul.html" target="_blank" rel="noopener">Read story →</a>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-thumb"><a class="story-village" href="districts/coimbatore.html" target="_blank" rel="noopener">📍 Coimbatore District, Tamil Nadu</a></div>
+        <div class="story-body">
+          <div class="story-tag">Culture &amp; Festival</div>
+          <a class="story-title" href="stories/coimbatore.html" target="_blank" rel="noopener">The harvest festival that brings a farming community together every year</a>
+          <div class="story-excerpt">How local Pongal celebrations near Coimbatore double as a season for farmers to trade and connect.</div>
+          <a class="story-read" href="stories/coimbatore.html" target="_blank" rel="noopener">Read story →</a>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:0.82rem; opacity:0.55;">Tap the district name (📍) on any card to see its map, taluks, and famous places.</p>
+    <a href="districts.html" style="display:inline-block; margin-top:10px; font-size:0.88rem; color:#FFD98A; font-weight:600;">Browse all 38 districts of Tamil Nadu →</a>
+    <a href="fm-radio.html" style="display:inline-block; margin-top:10px; margin-left:18px; font-size:0.88rem; color:#FFD98A; font-weight:600;">📻 Listen to Tamil Nadu FM Radio →</a>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Simple by design</div>
+      <h2>How Connect India works</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num mono">01</div>
+        <h3>Search your need</h3>
+        <p>Tell us what you're looking for and where — from a plumber to a wedding photographer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num mono">02</div>
+        <h3>Compare verified listings</h3>
+        <p>Browse ratings, prices, and profiles from businesses and professionals near you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num mono">03</div>
+        <h3>Connect directly</h3>
+        <p>Message, call, or book — no middleman, no waiting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="list-business">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Own a business? Get discovered.</h2>
+        <p>List your business for free and reach thousands of people searching in your city every day.</p>
+      </div>
+      <a class="btn-dark" href="#" target="_blank" rel="noopener">List Your Business →</a>
+    </div>
+  </div>
+</section>
+
+<section id="elsewhere">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Our Network</div>
+      <h2>Find us elsewhere</h2>
+    </div>
+    <div class="link-grid">
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <div class="link-kicker">App</div>
+        <div class="link-title">Download the App</div>
+        <div class="link-arrow">Available on Android &amp; iOS →</div>
+      </a>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <div class="link-kicker">Social</div>
+        <div class="link-title">Instagram</div>
+        <div class="link-arrow">Local spotlights &amp; offers →</div>
+      </a>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <div class="link-kicker">Social</div>
+        <div class="link-title">LinkedIn</div>
+        <div class="link-arrow">Company updates &amp; hiring →</div>
+      </a>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <div class="link-kicker">Support</div>
+        <div class="link-title">Help Center</div>
+        <div class="link-arrow">Guides for businesses &amp; users →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Connect<span>India</span></div>
+        <p style="font-size:0.85rem; margin-top:12px; max-width:260px; opacity:0.7;">India's unified platform to find, connect, and grow — across services, businesses, and jobs.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#categories">Categories</a>
+        <a href="#listings">Listings</a>
+        <a href="#list-business">List a Business</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Connect India. All rights reserved.</span>
+      <span>Made for every city, every need.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var hero = document.querySelector('.hero');
+    if(!hero) return;
+    var hour = new Date().getHours();
+    if(hour >= 5 && hour < 11){ hero.classList.add('time-morning'); }
+  })();
+</script>
+</body>
+</html>
