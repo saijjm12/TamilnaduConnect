@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theni District — Map, Taluks &amp; Famous Places | Connect India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --indigo:#2F4A34; --marigold:#D9A441; --ivory:#FBF6E9; --rani:#A8532F; --leaf:#4F7942; --ink:#23241C; --line:rgba(47,74,52,0.15); --radius:10px; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--ivory); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.7;}
+  body.lang-ta, body.lang-ta *{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  a{color:var(--marigold);}
+  .wrap{max-width:820px; margin:0 auto; padding:50px 28px 100px;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .back{font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--indigo); opacity:0.7; text-decoration:none;}
+  .lang-switch{display:inline-flex; border:1.5px solid var(--line); border-radius:20px; overflow:hidden; background:#fff;}
+  .lang-switch button{border:none; background:transparent; padding:7px 16px; font-family:'Space Mono',monospace; font-size:0.78rem; font-weight:700; cursor:pointer; color:var(--indigo); opacity:0.55;}
+  .lang-switch button.active{background:var(--indigo); color:var(--ivory); opacity:1;}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:0.76rem; color:var(--rani); text-transform:uppercase; letter-spacing:0.1em; margin-top:26px;}
+  h1{font-family:'Sora',sans-serif; font-weight:700; font-size:2rem; color:var(--indigo); margin-top:10px;}
+  .map-frame{width:100%; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; margin-top:26px; border:1.5px solid var(--line);}
+  .map-frame iframe{width:100%; height:100%; border:0;}
+  h2{font-family:'Sora',sans-serif; font-weight:700; font-size:1.25rem; color:var(--indigo); margin-top:40px; margin-bottom:14px;}
+  .chip-list{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{background:#fff; border:1.5px solid var(--line); border-radius:20px; padding:8px 16px; font-size:0.88rem;}
+  .place-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px;}
+  .place-card{background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); overflow:hidden; display:block; text-decoration:none; color:inherit; transition:transform .15s, border-color .15s;}
+  .place-card:hover{transform:translateY(-3px); border-color:var(--marigold);}
+  .place-photo{height:130px; background:linear-gradient(135deg, var(--indigo), var(--leaf)); background-size:cover; background-position:center; position:relative;}
+  .place-photo .credit{position:absolute; bottom:8px; left:8px; font-family:'Space Mono',monospace; font-size:0.62rem; color:#fff; background:rgba(0,0,0,0.45); padding:3px 7px; border-radius:5px;}
+  .place-photo .wiki-badge{position:absolute; bottom:8px; right:8px; font-family:'Space Mono',monospace; font-size:0.66rem; color:#fff; background:rgba(0,0,0,0.45); padding:4px 8px; border-radius:5px; display:flex; align-items:center; gap:4px;}
+  .place-body{padding:16px 18px;}
+  .place-name{font-family:'Sora',sans-serif; font-weight:600; color:var(--indigo); font-size:0.98rem;}
+  .place-desc{font-size:0.86rem; opacity:0.7; margin-top:4px;}
+  .note{margin-top:44px; padding:14px 18px; background:rgba(217,164,65,0.12); border-radius:8px; font-size:0.8rem; color:var(--indigo); opacity:0.9;}
+  [data-ta]{display:none;}
+  body.lang-ta [data-en]{display:none;}
+  body.lang-ta [data-ta]{display:inline;}
+  body.lang-ta [data-ta].block{display:block;}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="../index.html"><span data-en>&larr; Back to Connect India</span><span data-ta>&larr; Connect India-க்குத் திரும்பு</span></a>
+    <div class="lang-switch" id="langSwitch">
+      <button type="button" data-set-lang="en" class="active">EN</button>
+      <button type="button" data-set-lang="ta">தமிழ்</button>
+    </div>
+  </div>
+
+  <div class="eyebrow"><span data-en>District Guide</span><span data-ta>மாவட்ட வழிகாட்டி</span></div>
+  <h1><span data-en>Theni District, Tamil Nadu</span><span data-ta>தேனி மாவட்டம், தமிழ்நாடு</span></h1>
+
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps?q=Theni+District,+Tamil+Nadu&output=embed" loading="lazy" allowfullscreen></iframe>
+  </div>
+
+  <h2><span data-en>Taluks</span><span data-ta>வட்டங்கள்</span></h2>
+  <div class="chip-list">
+    <span class="chip"><span data-en>Theni</span><span data-ta>தேனி</span></span>
+    <span class="chip"><span data-en>Periyakulam</span><span data-ta>பெரியகுளம்</span></span>
+    <span class="chip"><span data-en>Bodinayakanur</span><span data-ta>போடிநாயக்கனூர்</span></span>
+    <span class="chip"><span data-en>Uthamapalayam</span><span data-ta>உத்தமபாளையம்</span></span>
+    <span class="chip"><span data-en>Andipatti</span><span data-ta>ஆண்டிப்பட்டி</span></span>
+  </div>
+
+  <h2><span data-en>Famous places</span><span data-ta>புகழ்பெற்ற இடங்கள்</span></h2>
+  <div class="place-grid">
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Suruli%20Falls&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%9A%E0%AF%81%E0%AE%B0%E0%AF%81%E0%AE%B3%E0%AE%BF%20%E0%AE%85%E0%AE%B0%E0%AF%81%E0%AE%B5%E0%AE%BF&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Suruli%20Falls&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1609775015123-e7573e73a7a7?fm=jpg&q=75&w=800&auto=format&fit=crop')"><span class="credit">Representative photo</span><span class="wiki-badge">📖 <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Suruli Falls</span><span data-ta>சுருளி அருவி</span></div>
+        <div class="place-desc"><span data-en>A picturesque waterfall en route to the Western Ghats' Meghamalai hills.</span><span data-ta>மேகமலைக்குச் செல்லும் வழியில் உள்ள அழகிய அருவி.</span></div>
+      </div>
+    </a>
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Meghamalai&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%AE%E0%AF%87%E0%AE%95%E0%AE%AE%E0%AE%B2%E0%AF%88&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Meghamalai&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1622725859789-8e9ccf920693?fm=jpg&q=75&w=800&auto=format&fit=crop')"><span class="credit">Representative photo</span><span class="wiki-badge">📖 <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Meghamalai</span><span data-ta>மேகமலை</span></div>
+        <div class="place-desc"><span data-en>A remote 'cloud mountain' region of tea and cardamom plantations.</span><span data-ta>தேயிலை, ஏலக்காய்த் தோட்டங்களைக் கொண்ட தொலைதூர 'மேக மலை' பகுதி.</span></div>
+      </div>
+    </a>
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Mullaperiyar%20Dam%20/%20Vaigai%20Dam%20area&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%B5%E0%AF%88%E0%AE%95%E0%AF%88%20%E0%AE%85%E0%AE%A3%E0%AF%88%E0%AE%AA%E0%AF%8D%20%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%A4%E0%AE%BF&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Mullaperiyar%20Dam%20/%20Vaigai%20Dam%20area&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background:linear-gradient(135deg, var(--leaf), var(--marigold))"><span class="wiki-badge">📖 <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Mullaperiyar Dam / Vaigai Dam area</span><span data-ta>வைகை அணைப் பகுதி</span></div>
+        <div class="place-desc"><span data-en>Reservoir landscapes at the edge of the district near the Kerala border.</span><span data-ta>கேரள எல்லைக்கு அருகில் மாவட்ட எல்லையில் உள்ள நீர்த்தேக்க இயற்கைக் காட்சிகள்.</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h2><span data-en>Famous food</span><span data-ta>புகழ்பெற்ற உணவுகள்</span></h2>
+  <div class="place-grid">
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Theni%20Grapes%20%26%20Bananas&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%A4%E0%AF%87%E0%AE%A9%E0%AE%BF%20%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AE%BE%E0%AE%9F%E0%AF%8D%E0%AE%9A%E0%AF%88%20%26%20%E0%AE%B5%E0%AE%BE%E0%AE%B4%E0%AF%88%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%B4%E0%AE%AE%E0%AF%8D&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Theni%20Grapes%20%26%20Bananas&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background:linear-gradient(135deg, var(--marigold), var(--rani))"><span class="wiki-badge">🍽️ <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Theni Grapes & Bananas</span><span data-ta>தேனி திராட்சை & வாழைப்பழம்</span></div>
+        <div class="place-desc"><span data-en>Bodinayakanur and Theni are known for their grape and banana orchards.</span><span data-ta>திராட்சை, வாழைப்பழத் தோட்டங்களுக்குப் புகழ்பெற்றவை போடிநாயக்கனூர் மற்றும் தேனி.</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="note">
+    <span data-en>Tap any place to open its Wikipedia article for more history and details. Use the EN / தமிழ் switch above to read this page in Tamil.</span>
+    <span data-ta>மேலும் வரலாறு, விவரங்களுக்கு எந்த இடத்தையும் தட்டி அதன் விக்கிபீடியா கட்டுரையைத் திறக்கவும். இப்பக்கத்தை தமிழில் படிக்க மேலே உள்ள EN / தமிழ் பொத்தானைப் பயன்படுத்தவும்.</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'ci_lang';
+  var body = document.body;
+  var buttons = document.querySelectorAll('#langSwitch button');
+  function apply(lang){
+    body.classList.toggle('lang-ta', lang === 'ta');
+    document.documentElement.lang = lang;
+    buttons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-set-lang') === lang); });
+    document.querySelectorAll('.place-card').forEach(function(a){
+      a.href = lang === 'ta' ? a.getAttribute('data-wiki-ta') : a.getAttribute('data-wiki-en');
+    });
+    try { localStorage.setItem(KEY, lang); } catch(e){}
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-set-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+  apply(saved === 'ta' ? 'ta' : 'en');
+})();
+</script>
+</body>
+</html>

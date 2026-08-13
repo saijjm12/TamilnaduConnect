@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viluppuram District — Map, Taluks &amp; Famous Places | Connect India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --indigo:#2F4A34; --marigold:#D9A441; --ivory:#FBF6E9; --rani:#A8532F; --leaf:#4F7942; --ink:#23241C; --line:rgba(47,74,52,0.15); --radius:10px; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--ivory); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.7;}
+  body.lang-ta, body.lang-ta *{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  a{color:var(--marigold);}
+  .wrap{max-width:820px; margin:0 auto; padding:50px 28px 100px;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .back{font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--indigo); opacity:0.7; text-decoration:none;}
+  .lang-switch{display:inline-flex; border:1.5px solid var(--line); border-radius:20px; overflow:hidden; background:#fff;}
+  .lang-switch button{border:none; background:transparent; padding:7px 16px; font-family:'Space Mono',monospace; font-size:0.78rem; font-weight:700; cursor:pointer; color:var(--indigo); opacity:0.55;}
+  .lang-switch button.active{background:var(--indigo); color:var(--ivory); opacity:1;}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:0.76rem; color:var(--rani); text-transform:uppercase; letter-spacing:0.1em; margin-top:26px;}
+  h1{font-family:'Sora',sans-serif; font-weight:700; font-size:2rem; color:var(--indigo); margin-top:10px;}
+  .map-frame{width:100%; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; margin-top:26px; border:1.5px solid var(--line);}
+  .map-frame iframe{width:100%; height:100%; border:0;}
+  h2{font-family:'Sora',sans-serif; font-weight:700; font-size:1.25rem; color:var(--indigo); margin-top:40px; margin-bottom:14px;}
+  .chip-list{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{background:#fff; border:1.5px solid var(--line); border-radius:20px; padding:8px 16px; font-size:0.88rem;}
+  .place-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px;}
+  .place-card{background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); overflow:hidden; display:block; text-decoration:none; color:inherit; transition:transform .15s, border-color .15s;}
+  .place-card:hover{transform:translateY(-3px); border-color:var(--marigold);}
+  .place-photo{height:130px; background:linear-gradient(135deg, var(--indigo), var(--leaf)); background-size:cover; background-position:center; position:relative;}
+  .place-photo .credit{position:absolute; bottom:8px; left:8px; font-family:'Space Mono',monospace; font-size:0.62rem; color:#fff; background:rgba(0,0,0,0.45); padding:3px 7px; border-radius:5px;}
+  .place-photo .wiki-badge{position:absolute; bottom:8px; right:8px; font-family:'Space Mono',monospace; font-size:0.66rem; color:#fff; background:rgba(0,0,0,0.45); padding:4px 8px; border-radius:5px; display:flex; align-items:center; gap:4px;}
+  .place-body{padding:16px 18px;}
+  .place-name{font-family:'Sora',sans-serif; font-weight:600; color:var(--indigo); font-size:0.98rem;}
+  .place-desc{font-size:0.86rem; opacity:0.7; margin-top:4px;}
+  .note{margin-top:44px; padding:14px 18px; background:rgba(217,164,65,0.12); border-radius:8px; font-size:0.8rem; color:var(--indigo); opacity:0.9;}
+  [data-ta]{display:none;}
+  body.lang-ta [data-en]{display:none;}
+  body.lang-ta [data-ta]{display:inline;}
+  body.lang-ta [data-ta].block{display:block;}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="../index.html"><span data-en>&larr; Back to Connect India</span><span data-ta>&larr; Connect India-க்குத் திரும்பு</span></a>
+    <div class="lang-switch" id="langSwitch">
+      <button type="button" data-set-lang="en" class="active">EN</button>
+      <button type="button" data-set-lang="ta">தமிழ்</button>
+    </div>
+  </div>
+
+  <div class="eyebrow"><span data-en>District Guide</span><span data-ta>மாவட்ட வழிகாட்டி</span></div>
+  <h1><span data-en>Viluppuram District, Tamil Nadu</span><span data-ta>விழுப்புரம் மாவட்டம், தமிழ்நாடு</span></h1>
+
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps?q=Viluppuram+District,+Tamil+Nadu&output=embed" loading="lazy" allowfullscreen></iframe>
+  </div>
+
+  <h2><span data-en>Taluks</span><span data-ta>வட்டங்கள்</span></h2>
+  <div class="chip-list">
+    <span class="chip"><span data-en>Viluppuram</span><span data-ta>விழுப்புரம்</span></span>
+    <span class="chip"><span data-en>Tindivanam</span><span data-ta>திண்டிவனம்</span></span>
+    <span class="chip"><span data-en>Gingee</span><span data-ta>செஞ்சி</span></span>
+    <span class="chip"><span data-en>Vanur</span><span data-ta>வானூர்</span></span>
+    <span class="chip"><span data-en>Kandamangalam</span><span data-ta>கண்டமங்கலம்</span></span>
+  </div>
+
+  <h2><span data-en>Famous places</span><span data-ta>புகழ்பெற்ற இடங்கள்</span></h2>
+  <div class="place-grid">
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Gingee%20Fort%20%28Senji%29&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%9A%E0%AF%86%E0%AE%9E%E0%AF%8D%E0%AE%9A%E0%AE%BF%20%E0%AE%95%E0%AF%8B%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AF%88&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Gingee%20Fort%20%28Senji%29&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background:linear-gradient(135deg, var(--indigo), var(--leaf))"><span class="wiki-badge">📖 <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Gingee Fort (Senji)</span><span data-ta>செஞ்சி கோட்டை</span></div>
+        <div class="place-desc"><span data-en>A vast hill fortress once called 'the most impregnable fort in India'.</span><span data-ta>'இந்தியாவின் வெல்ல முடியாத கோட்டை' என அழைக்கப்பட்ட பரந்த மலைக்கோட்டை.</span></div>
+      </div>
+    </a>
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Melmalayanur%20Angalamman%20Temple&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%AE%E0%AF%87%E0%AE%B2%E0%AF%8D%E0%AE%AE%E0%AE%B2%E0%AF%88%E0%AE%AF%E0%AE%A9%E0%AF%82%E0%AE%B0%E0%AF%8D%20%E0%AE%85%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%BE%E0%AE%B3%E0%AE%AE%E0%AF%8D%E0%AE%AE%E0%AE%A9%E0%AF%8D%20%E0%AE%95%E0%AF%8B%E0%AE%AF%E0%AE%BF%E0%AE%B2%E0%AF%8D&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Melmalayanur%20Angalamman%20Temple&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1766512774775-4cec70afe3dd?fm=jpg&q=75&w=800&auto=format&fit=crop')"><span class="credit">Representative photo</span><span class="wiki-badge">📖 <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Melmalayanur Angalamman Temple</span><span data-ta>மேல்மலையனூர் அங்காளம்மன் கோயில்</span></div>
+        <div class="place-desc"><span data-en>A widely revered Amman temple known for its Aadi Amavasai festival crowds.</span><span data-ta>ஆடி அமாவாசை திருவிழாவில் பெருந்திரளான பக்தர்களை ஈர்க்கும் அம்மன் கோயில்.</span></div>
+      </div>
+    </a>
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Tindivanam%20area%20temples&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%A4%E0%AE%BF%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AE%BF%E0%AE%B5%E0%AE%A9%E0%AE%AE%E0%AF%8D%20%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%A4%E0%AE%BF%20%E0%AE%95%E0%AF%8B%E0%AE%AF%E0%AE%BF%E0%AE%B2%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Tindivanam%20area%20temples&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background-image:url('https://images.unsplash.com/photo-1766512774775-4cec70afe3dd?fm=jpg&q=75&w=800&auto=format&fit=crop')"><span class="credit">Representative photo</span><span class="wiki-badge">📖 <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Tindivanam area temples</span><span data-ta>திண்டிவனம் பகுதி கோயில்கள்</span></div>
+        <div class="place-desc"><span data-en>A cluster of historic temples along the old Chennai–Trichy trunk road.</span><span data-ta>பழைய சென்னை–திருச்சி நெடுஞ்சாலையில் அமைந்த வரலாற்றுக் கோயில்கள் தொகுப்பு.</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h2><span data-en>Famous food</span><span data-ta>புகழ்பெற்ற உணவுகள்</span></h2>
+  <div class="place-grid">
+    <a class="place-card" target="_blank" rel="noopener" data-wiki-en="https://en.wikipedia.org/w/index.php?search=Gingee-area%20Jackfruit%20Dishes&title=Special%3ASearch&go=Go" data-wiki-ta="https://ta.wikipedia.org/w/index.php?search=%E0%AE%9A%E0%AF%86%E0%AE%9E%E0%AF%8D%E0%AE%9A%E0%AE%BF%20%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%A4%E0%AE%BF%20%E0%AE%AA%E0%AE%B2%E0%AE%BE%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%B4%20%E0%AE%89%E0%AE%A3%E0%AE%B5%E0%AF%81%E0%AE%95%E0%AE%B3%E0%AF%8D&title=Special%3ASearch&go=Go" href="https://en.wikipedia.org/w/index.php?search=Gingee-area%20Jackfruit%20Dishes&title=Special%3ASearch&go=Go">
+      <div class="place-photo" style="background:linear-gradient(135deg, var(--marigold), var(--rani))"><span class="wiki-badge">🍽️ <span data-en>Wikipedia</span><span data-ta>விக்கிபீடியா</span></span></div>
+      <div class="place-body">
+        <div class="place-name"><span data-en>Gingee-area Jackfruit Dishes</span><span data-ta>செஞ்சி பகுதி பலாப்பழ உணவுகள்</span></div>
+        <div class="place-desc"><span data-en>Seasonal jackfruit cooking traditional to the district's hill-fringe villages.</span><span data-ta>மாவட்டத்தின் மலைச்சாரல் கிராமங்களின் பருவகால பலாப்பழ சமையல் பாரம்பரியம்.</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="note">
+    <span data-en>Tap any place to open its Wikipedia article for more history and details. Use the EN / தமிழ் switch above to read this page in Tamil.</span>
+    <span data-ta>மேலும் வரலாறு, விவரங்களுக்கு எந்த இடத்தையும் தட்டி அதன் விக்கிபீடியா கட்டுரையைத் திறக்கவும். இப்பக்கத்தை தமிழில் படிக்க மேலே உள்ள EN / தமிழ் பொத்தானைப் பயன்படுத்தவும்.</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'ci_lang';
+  var body = document.body;
+  var buttons = document.querySelectorAll('#langSwitch button');
+  function apply(lang){
+    body.classList.toggle('lang-ta', lang === 'ta');
+    document.documentElement.lang = lang;
+    buttons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-set-lang') === lang); });
+    document.querySelectorAll('.place-card').forEach(function(a){
+      a.href = lang === 'ta' ? a.getAttribute('data-wiki-ta') : a.getAttribute('data-wiki-en');
+    });
+    try { localStorage.setItem(KEY, lang); } catch(e){}
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-set-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+  apply(saved === 'ta' ? 'ta' : 'en');
+})();
+</script>
+</body>
+</html>
