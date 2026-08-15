@@ -47,6 +47,16 @@
   .nav-links a:hover{opacity:1;}
   .nav-cta{background:var(--indigo); color:var(--ivory); padding:10px 20px; border-radius:8px; font-size:0.88rem; font-weight:600;}
   .nav-cta:hover{background:var(--indigo-soft);}
+  .nav-burger{display:none; flex-direction:column; justify-content:center; gap:5px; width:38px; height:38px; background:none; border:none; cursor:pointer; padding:0;}
+  .nav-burger span{display:block; width:22px; height:2px; background:var(--indigo); border-radius:2px; transition:transform 0.2s, opacity 0.2s;}
+  .nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-menu{display:none; flex-direction:column; padding:6px 28px 18px; border-top:1px solid var(--line);}
+  .mobile-menu a{padding:12px 0; font-size:0.98rem; font-weight:500; color:var(--indigo); border-bottom:1px solid var(--line);}
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu .mobile-cta{margin-top:10px; background:var(--indigo); color:var(--ivory); text-align:center; border-radius:8px; font-weight:600; border-bottom:none;}
+  .mobile-menu.open{display:flex;}
 
   /* ===== Hero ===== */
   .hero{
@@ -171,11 +181,47 @@
   .village-banner{
     width:100%; aspect-ratio:16/5; border-radius:var(--radius); overflow:hidden;
     margin-bottom:40px; position:relative; border:1.5px solid rgba(251,246,233,0.15);
-    background-image:url('images/Village_bg.png');
-    background-size:cover;
-    background-position:center;
+    background:linear-gradient(135deg, var(--leaf), var(--indigo));
   }
-  .village-banner svg{width:100%; height:100%; display:block;}
+  .vb-slide{
+    position:absolute; inset:0; background-size:cover; background-position:center;
+    opacity:0; animation:vbFade 14s infinite;
+  }
+  .vb-slide:nth-child(1){animation-delay:0s;}
+  .vb-slide:nth-child(2){animation-delay:7s;}
+  @keyframes vbFade{
+    0%{opacity:0; transform:scale(1.04);}
+    4%{opacity:1;}
+    46%{opacity:1; transform:scale(1.12);}
+    50%{opacity:0; transform:scale(1.12);}
+    100%{opacity:0;}
+  }
+  .vb-caption{
+    position:absolute; left:0; right:0; bottom:0; padding:16px 22px;
+    background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+    font-family:'Sora',sans-serif; font-weight:600; font-size:0.95rem; color:#fff;
+  }
+  .vb-caption span.sub{display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:0.78rem; opacity:0.8; margin-top:2px;}
+  .vb-special{
+    position:absolute; inset:0; background-size:cover; background-position:center;
+    display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center;
+    padding:20px;
+  }
+  .vb-special::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(19,32,22,0.35) 0%, rgba(19,32,22,0.75) 100%);
+  }
+  .vb-flagstripe{position:absolute; top:0; left:0; right:0; height:6px; display:flex; z-index:2;}
+  .vb-flagstripe span{flex:1; animation:vbStripe 3s ease-in-out infinite;}
+  .vb-flagstripe span:nth-child(1){background:#FF9933;}
+  .vb-flagstripe span:nth-child(2){background:#FFFFFF;}
+  .vb-flagstripe span:nth-child(3){background:#138808;}
+  @keyframes vbStripe{0%,100%{opacity:0.85;} 50%{opacity:1;}}
+  .vb-special-title{position:relative; z-index:2; font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(1.3rem,3.4vw,2rem); color:#fff; animation:vbRise 1s ease both;}
+  .vb-special-sub{position:relative; z-index:2; font-size:0.9rem; color:#fff; opacity:0.9; margin-top:8px; max-width:520px; animation:vbRise 1.2s ease both;}
+  .vb-flag-emoji{position:relative; z-index:2; font-size:2.4rem; display:inline-block; animation:vbWave 2.2s ease-in-out infinite; transform-origin:left center; margin-bottom:6px;}
+  @keyframes vbWave{0%,100%{transform:rotate(-6deg);} 50%{transform:rotate(6deg);}}
+  @keyframes vbRise{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
   .story-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; position:relative;}
   .story-card{background:rgba(251,246,233,0.06); border:1.5px solid rgba(251,246,233,0.15); border-radius:var(--radius); overflow:hidden; transition:transform 0.15s, border-color 0.15s;}
   .story-card:hover{transform:translateY(-3px); border-color:var(--marigold);}
@@ -231,6 +277,7 @@
 
   @media (max-width:760px){
     .nav-links, .nav-cta{display:none;}
+    .nav-burger{display:flex;}
     .search-bar{flex-direction:column;}
     .search-field.loc{border-left:none; border-top:1.5px solid var(--line);}
     .steps, .stats-grid, .footer-grid, .pricing-grid{grid-template-columns:1fr 1fr;}
@@ -264,7 +311,21 @@
       <a href="#elsewhere">Our Network</a>
     </nav>
     <a class="nav-cta" href="#list-business">List Your Business</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#categories">Categories</a>
+    <a href="#listings">Listings</a>
+    <a href="#stories">Village Stories</a>
+    <a href="districts.html">38 Districts</a>
+    <a href="fm-radio.html">FM Radio</a>
+    <a href="contribute.html">Contribute</a>
+    <a href="#how">How It Works</a>
+    <a href="#elsewhere">Our Network</a>
+    <a href="#list-business" class="mobile-cta">List Your Business</a>
+  </nav>
 </header>
 
 <section class="hero">
@@ -318,7 +379,14 @@
       <a href="contribute.html" target="_blank" rel="noopener" style="display:inline-block; margin-top:18px; padding:12px 24px; background:var(--marigold); color:#fff; border-radius:8px; font-family:'Sora',sans-serif; font-weight:600; font-size:0.9rem; text-decoration:none;">📷 Share Your Photo or Video →</a>
     </div>
 
-    <div class="village-banner"></div>
+    <div class="village-banner" id="villageBanner">
+      <div class="vb-slide" style="background-image:url('https://images.unsplash.com/photo-1751996766812-83144dfa42f9?fm=jpg&amp;q=75&amp;w=1400&amp;auto=format&amp;fit=crop')"></div>
+      <div class="vb-slide" style="background-image:url('https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?fm=jpg&amp;q=75&amp;w=1400&amp;auto=format&amp;fit=crop')"></div>
+      <div class="vb-caption" id="vbCaption">
+        Farmers across Tamil Nadu's villages
+        <span class="sub">Real photos from India's agricultural communities</span>
+      </div>
+    </div>
 
     <div class="story-grid">
       <div class="story-card">
@@ -471,6 +539,88 @@
     if(!hero) return;
     var hour = new Date().getHours();
     if(hour >= 5 && hour < 11){ hero.classList.add('time-morning'); }
+  })();
+</script>
+<script>
+  // Mobile hamburger menu toggle
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var menu = document.getElementById('mobileMenu');
+    if(!burger || !menu) return;
+    function closeMenu(){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    }
+    function openMenu(){
+      menu.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Close menu');
+    }
+    burger.addEventListener('click', function(){
+      if(menu.classList.contains('open')){ closeMenu(); } else { openMenu(); }
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+<script>
+  // Occasional themed banner — swaps the village banner to a festival photo
+  // with a waving-flag animation on specific calendar dates.
+  (function(){
+    var banner = document.getElementById('villageBanner');
+    if(!banner) return;
+    var today = new Date();
+    var m = today.getMonth() + 1, d = today.getDate();
+
+    var occasions = [
+      { m:1,  d:26, en:"Happy Republic Day! 🇮🇳", ta:"குடியரசு தின நல்வாழ்த்துக்கள்! 🇮🇳",
+        subEn:"Celebrating India's constitution and the villages that make up its heart.",
+        subTa:"இந்தியாவின் அரசியலமைப்பையும் அதன் இதயமான கிராமங்களையும் கொண்டாடுகிறோம்.",
+        img:"https://images.unsplash.com/photo-1696002480746-2b9c4778b0a0?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+      { m:8,  d:15, en:"Happy Independence Day! 🇮🇳", ta:"சுதந்திர தின நல்வாழ்த்துக்கள்! 🇮🇳",
+        subEn:"Wishing Tamil Nadu's farmers, artisans, and villages continued growth and pride.",
+        subTa:"தமிழ்நாட்டின் விவசாயிகள், கைவினைஞர்கள், கிராமங்களுக்கு தொடர் வளர்ச்சியும் பெருமையும் வாழ்த்துகள்.",
+        img:"https://images.unsplash.com/photo-1696002480746-2b9c4778b0a0?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+      { m:10, d:2,  en:"Gandhi Jayanti 🙏", ta:"காந்தி ஜெயந்தி 🙏",
+        subEn:"Remembering the man who believed India lives in its villages.",
+        subTa:"இந்தியா தன் கிராமங்களில் வாழ்கிறது என்று நம்பிய மகானை நினைவுகூர்கிறோம்.",
+        img:"https://images.unsplash.com/photo-1696002480746-2b9c4778b0a0?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+      { m:1,  d:14, en:"Happy Pongal! 🌾", ta:"பொங்கல் நல்வாழ்த்துக்கள்! 🌾",
+        subEn:"A harvest festival honoring farmers and the sun that grows their crops.",
+        subTa:"விவசாயிகளையும் பயிர்களை வளர்க்கும் சூரியனையும் போற்றும் அறுவடைத் திருவிழா.",
+        img:"https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+      { m:1,  d:15, en:"Happy Pongal! 🌾", ta:"பொங்கல் நல்வாழ்த்துக்கள்! 🌾",
+        subEn:"A harvest festival honoring farmers and the sun that grows their crops.",
+        subTa:"விவசாயிகளையும் பயிர்களை வளர்க்கும் சூரியனையும் போற்றும் அறுவடைத் திருவிழா.",
+        img:"https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+      { m:1,  d:16, en:"Happy Mattu Pongal! 🐂", ta:"மாட்டுப் பொங்கல் நல்வாழ்த்துக்கள்! 🐂",
+        subEn:"Honoring the cattle that stand beside every farming family.",
+        subTa:"ஒவ்வொரு விவசாயக் குடும்பத்தின் அருகில் நிற்கும் கால்நடைகளைப் போற்றும் நாள்.",
+        img:"https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+      { m:4,  d:14, en:"Happy Tamil New Year! 🌿", ta:"இனிய தமிழ் புத்தாண்டு நல்வாழ்த்துக்கள்! 🌿",
+        subEn:"Puthandu greetings to every village and family across Tamil Nadu.",
+        subTa:"தமிழ்நாடு முழுவதும் உள்ள கிராமங்களுக்கும் குடும்பங்களுக்கும் புத்தாண்டு வாழ்த்துக்கள்.",
+        img:"https://images.unsplash.com/photo-1751996766812-83144dfa42f9?fm=jpg&q=75&w=1400&auto=format&fit=crop" },
+    ];
+
+    var todayOccasion = null;
+    for (var i = 0; i < occasions.length; i++) {
+      if (occasions[i].m === m && occasions[i].d === d) { todayOccasion = occasions[i]; break; }
+    }
+    if (!todayOccasion) return;
+
+    var lang = 'en';
+    try { lang = localStorage.getItem('ci_lang') === 'ta' ? 'ta' : 'en'; } catch(e){}
+
+    banner.innerHTML =
+      '<div class="vb-flagstripe"><span></span><span></span><span></span></div>' +
+      '<div class="vb-special" style="background-image:url(\'' + todayOccasion.img + '\')">' +
+        '<div class="vb-flag-emoji">🇮🇳</div>' +
+        '<div class="vb-special-title">' + (lang === 'ta' ? todayOccasion.ta : todayOccasion.en) + '</div>' +
+        '<div class="vb-special-sub">' + (lang === 'ta' ? todayOccasion.subTa : todayOccasion.subEn) + '</div>' +
+      '</div>';
   })();
 </script>
 </body>
