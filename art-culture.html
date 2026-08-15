@@ -47,6 +47,9 @@
   .inst-desc{font-size:0.85rem; opacity:0.7; margin-top:6px;}
   .inst-play{margin-top:14px; display:inline-block; background:#FF0000; color:#fff; border:none; padding:9px 18px; border-radius:8px; font-size:0.85rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; text-decoration:none;}
   .inst-play:hover{opacity:0.9;}
+  .inst-video{margin-top:14px; width:100%; border-radius:8px; background:#000; display:block;}
+  .inst-more{margin-top:12px; display:inline-flex; align-items:center; gap:6px; background:#FF0000; color:#fff; padding:8px 15px; border-radius:8px; font-size:0.8rem; font-weight:600; text-decoration:none;}
+  .inst-more:hover{opacity:0.9;}
 
   .note{margin-top:44px; padding:14px 18px; background:rgba(217,164,65,0.12); border-radius:8px; font-size:0.8rem; color:var(--indigo); opacity:0.9;}
   [data-ta]{display:none;}
@@ -89,8 +92,12 @@
   <div class="inst-grid">
     <div class="inst-card">
       <div class="inst-name"><span data-en>Tapasyamritam Institute</span><span data-ta>தபஸ்யாம்ரிதம் நிறுவனம்</span></div>
-      <div class="inst-desc"><span data-en>Dance shorts posted under the #tapasyamritam tag on YouTube.</span><span data-ta>யூடியூபில் #tapasyamritam ஹேஷ்டேக்கின் கீழ் பதிவேற்றப்பட்ட நடன ஷார்ட்ஸ்.</span></div>
-      <a class="inst-play" href="https://www.youtube.com/hashtag/tapasyamritam/shorts" target="_blank" rel="noopener">▶ <span data-en>Browse shorts on YouTube</span><span data-ta>யூடியூபில் ஷார்ட்ஸ் காண</span></a>
+      <div class="inst-desc"><span data-en>A short introduction, made for Connect India — plays right here in your browser.</span><span data-ta>Connect India-க்காக உருவாக்கப்பட்ட சிறு அறிமுகம் — உங்கள் உலாவியிலேயே இயங்கும்.</span></div>
+      <video class="inst-video" controls playsinline preload="metadata" poster="media/tapasyamritam-poster.jpg">
+        <source src="media/tapasyamritam-intro.mp4" type="video/mp4">
+        Your browser doesn't support embedded video.
+      </video>
+      <a class="inst-more" href="https://www.youtube.com/hashtag/tapasyamritam/shorts" target="_blank" rel="noopener">▶ <span data-en>More shorts on YouTube</span><span data-ta>மேலும் ஷார்ட்ஸ் யூடியூபில்</span></a>
     </div>
   </div>
 
