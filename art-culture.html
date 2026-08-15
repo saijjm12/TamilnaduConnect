@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art &amp; Culture of India — Dances, Martial Arts by State | Connect India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --indigo:#2F4A34; --marigold:#D9A441; --ivory:#FBF6E9; --rani:#A8532F; --leaf:#4F7942; --ink:#23241C; --line:rgba(47,74,52,0.15); --radius:10px; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--ivory); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.7;}
+  body.lang-ta, body.lang-ta *{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:50px 28px 100px;}
+  .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .back{font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--indigo); opacity:0.7; text-decoration:none;}
+  .lang-switch{display:inline-flex; border:1.5px solid var(--line); border-radius:20px; overflow:hidden; background:#fff;}
+  .lang-switch button{border:none; background:transparent; padding:7px 16px; font-family:'Space Mono',monospace; font-size:0.78rem; font-weight:700; cursor:pointer; color:var(--indigo); opacity:0.55;}
+  .lang-switch button.active{background:var(--indigo); color:var(--ivory); opacity:1;}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:0.76rem; color:var(--rani); text-transform:uppercase; letter-spacing:0.1em; margin-top:26px;}
+  h1{font-family:'Sora',sans-serif; font-weight:700; font-size:2rem; color:var(--indigo); margin-top:10px;}
+  p.sub{margin-top:10px; opacity:0.7; max-width:620px;}
+
+  .player-box{margin-top:32px; background:#111; border-radius:var(--radius); overflow:hidden; border:1.5px solid var(--line);}
+  .player-frame{position:relative; width:100%; aspect-ratio:16/9; background:#000;}
+  .player-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .player-info{padding:14px 18px; background:#fff; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .player-title{font-family:'Sora',sans-serif; font-weight:600; color:var(--indigo); font-size:1.02rem;}
+  .player-title span.tag{display:block; font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--rani); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px;}
+  .yt-link{display:inline-flex; align-items:center; gap:6px; background:#FF0000; color:#fff; padding:9px 16px; border-radius:8px; font-size:0.84rem; font-weight:600; text-decoration:none; white-space:nowrap;}
+  .yt-link:hover{opacity:0.9;}
+
+  h2{font-family:'Sora',sans-serif; font-weight:700; font-size:1.2rem; color:var(--indigo); margin-top:44px; margin-bottom:16px;}
+  .state-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px;}
+  .state-card{background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); padding:18px 20px;}
+  .state-name{font-family:'Sora',sans-serif; font-weight:600; color:var(--indigo); font-size:1rem; margin-bottom:8px;}
+  .dance-row{display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+  .dance-plain{background:rgba(47,74,52,0.06); padding:5px 11px; border-radius:14px; font-size:0.82rem;}
+  .dance-play{background:var(--marigold); color:#fff; border:none; padding:6px 13px; border-radius:14px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif;}
+  .dance-play:hover{background:var(--rani);}
+  .martial-badge{margin-top:10px; font-size:0.8rem; color:var(--rani); font-weight:600;}
+
+  .note{margin-top:44px; padding:14px 18px; background:rgba(217,164,65,0.12); border-radius:8px; font-size:0.8rem; color:var(--indigo); opacity:0.9;}
+  [data-ta]{display:none;}
+  body.lang-ta [data-en]{display:none;}
+  body.lang-ta [data-ta]{display:inline;}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="index.html"><span data-en>&larr; Back to Connect India</span><span data-ta>&larr; Connect India-க்குத் திரும்பு</span></a>
+    <div class="lang-switch" id="langSwitch">
+      <button type="button" data-set-lang="en" class="active">EN</button>
+      <button type="button" data-set-lang="ta">தமிழ்</button>
+    </div>
+  </div>
+
+  <div class="eyebrow"><span data-en>Art &amp; Culture</span><span data-ta>கலை &amp; பண்பாடு</span></div>
+  <h1><span data-en>Dances &amp; martial arts of India</span><span data-ta>இந்தியாவின் நடனங்கள் &amp; தற்காப்புக் கலைகள்</span></h1>
+  <p class="sub"><span data-en>Every state's classical and folk dance, and its martial art tradition where one exists. Tap a marigold-colored dance name to play a real performance right here — or open it on YouTube.</span><span data-ta>ஒவ்வொரு மாநிலத்தின் பாரம்பரிய, நாட்டுப்புற நடனமும், இருந்தால் அதன் தற்காப்புக் கலையும். மஞ்சள் நிற நடனப் பெயரைத் தட்டி இங்கேயே ஒரு உண்மையான நிகழ்ச்சியை இயக்கவும் — அல்லது யூடியூபில் திறக்கவும்.</span></p>
+
+  <div class="player-box" id="playerBox">
+    <div class="player-frame">
+      <iframe id="ytFrame" src="https://www.youtube.com/embed/JWhA3ldZcyY" title="Bharatanatyam" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="player-info">
+      <div class="player-title"><span class="tag"><span data-en>Now playing</span><span data-ta>இயங்குகிறது</span></span><span id="playerTitle">Bharatanatyam</span></div>
+      <a class="yt-link" id="ytOpenLink" href="https://www.youtube.com/watch?v=JWhA3ldZcyY" target="_blank" rel="noopener">▶ <span data-en>Watch on YouTube</span><span data-ta>யூடியூபில் காண</span></a>
+    </div>
+  </div>
+
+  <h2><span data-en>States &amp; their arts</span><span data-ta>மாநிலங்கள் &amp; அவற்றின் கலைகள்</span></h2>
+  <div class="state-grid">
+      <div class="state-card">
+        <div class="state-name"><span data-en>Andhra Pradesh</span><span data-ta>ஆந்திரப் பிரதேசம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Kuchipudi</span>, <span class="dance-plain">Dappu</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Arunachal Pradesh</span><span data-ta>அருணாசலப் பிரதேசம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Ponung</span>, <span class="dance-plain">Buiya</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Assam</span><span data-ta>அசாம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Bihu</span>, <span class="dance-plain">Sattriya</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Bihar</span><span data-ta>பீகார்</span></div>
+        <div class="dance-row"><span class="dance-plain">Jat-Jatin</span>, <span class="dance-plain">Domkach</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Chhattisgarh</span><span data-ta>சத்தீஸ்கர்</span></div>
+        <div class="dance-row"><span class="dance-plain">Panthi</span>, <span class="dance-plain">Raut Nacha</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Goa</span><span data-ta>கோவா</span></div>
+        <div class="dance-row"><span class="dance-plain">Dekhni</span>, <span class="dance-plain">Fugdi</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Gujarat</span><span data-ta>குஜராத்</span></div>
+        <div class="dance-row"><span class="dance-plain">Garba</span>, <span class="dance-plain">Dandiya Raas</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Haryana</span><span data-ta>ஹரியானா</span></div>
+        <div class="dance-row"><span class="dance-plain">Jhumar</span>, <span class="dance-plain">Phag</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Himachal Pradesh</span><span data-ta>இமாச்சலப் பிரதேசம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Nati</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Jharkhand</span><span data-ta>ஜார்க்கண்ட்</span></div>
+        <div class="dance-row"><span class="dance-plain">Chhau (Seraikella)</span>, <span class="dance-plain">Jhumar</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Karnataka</span><span data-ta>கர்நாடகா</span></div>
+        <div class="dance-row"><span class="dance-plain">Yakshagana</span>, <span class="dance-plain">Dollu Kunitha</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Kerala</span><span data-ta>கேரளா</span></div>
+        <div class="dance-row"><button type="button" class="dance-play" data-video="gVwm1yvNL_k" data-title="Kathakali">▶ Kathakali</button>, <span class="dance-plain">Mohiniyattam</span></div>
+        <div class="martial-badge">🥋 <span data-en>Kalaripayattu</span><span data-ta>Kalaripayattu</span></div>
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Madhya Pradesh</span><span data-ta>மத்தியப் பிரதேசம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Karma</span>, <span class="dance-plain">Grida</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Maharashtra</span><span data-ta>மகாராஷ்டிரா</span></div>
+        <div class="dance-row"><span class="dance-plain">Lavani</span>, <span class="dance-plain">Tamasha</span></div>
+        <div class="martial-badge">🥋 <span data-en>Mardani Khel</span><span data-ta>Mardani Khel</span></div>
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Manipur</span><span data-ta>மணிப்பூர்</span></div>
+        <div class="dance-row"><span class="dance-plain">Manipuri</span></div>
+        <div class="martial-badge">🥋 <span data-en>Thang-Ta</span><span data-ta>Thang-Ta</span></div>
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Meghalaya</span><span data-ta>மேகாலயா</span></div>
+        <div class="dance-row"><span class="dance-plain">Wangala</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Mizoram</span><span data-ta>மிசோரம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Cheraw (Bamboo Dance)</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Nagaland</span><span data-ta>நாகாலாந்து</span></div>
+        <div class="dance-row"><span class="dance-plain">Naga tribal war dances</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Odisha</span><span data-ta>ஒடிசா</span></div>
+        <div class="dance-row"><span class="dance-plain">Odissi</span>, <span class="dance-plain">Chhau (Mayurbhanj)</span></div>
+        <div class="martial-badge">🥋 <span data-en>Paika Akhada</span><span data-ta>Paika Akhada</span></div>
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Punjab</span><span data-ta>பஞ்சாப்</span></div>
+        <div class="dance-row"><span class="dance-plain">Bhangra</span>, <span class="dance-plain">Giddha</span></div>
+        <div class="martial-badge">🥋 <span data-en>Gatka</span><span data-ta>Gatka</span></div>
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Rajasthan</span><span data-ta>ராஜஸ்தான்</span></div>
+        <div class="dance-row"><span class="dance-plain">Ghoomar</span>, <span class="dance-plain">Kalbelia</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Sikkim</span><span data-ta>சிக்கிம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Chu Faat</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Tamil Nadu</span><span data-ta>தமிழ்நாடு</span></div>
+        <div class="dance-row"><button type="button" class="dance-play" data-video="JWhA3ldZcyY" data-title="Bharatanatyam">▶ Bharatanatyam</button>, <span class="dance-plain">Karagattam</span></div>
+        <div class="martial-badge">🥋 <span data-en>Silambam</span><span data-ta>Silambam</span></div>
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Telangana</span><span data-ta>தெலங்காணா</span></div>
+        <div class="dance-row"><span class="dance-plain">Perini Sivatandavam</span>, <span class="dance-plain">Bathukamma</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Tripura</span><span data-ta>திரிபுரா</span></div>
+        <div class="dance-row"><span class="dance-plain">Hojagiri</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Uttar Pradesh</span><span data-ta>உத்தரப் பிரதேசம்</span></div>
+        <div class="dance-row"><button type="button" class="dance-play" data-video="r8kKAhLd6ac" data-title="Kathak">▶ Kathak</button></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>Uttarakhand</span><span data-ta>உத்தராகண்ட்</span></div>
+        <div class="dance-row"><span class="dance-plain">Chholiya (sword dance)</span></div>
+        
+      </div>
+      <div class="state-card">
+        <div class="state-name"><span data-en>West Bengal</span><span data-ta>மேற்கு வங்காளம்</span></div>
+        <div class="dance-row"><span class="dance-plain">Chhau (Purulia)</span>, <span class="dance-plain">Kathi Nach</span></div>
+        
+      </div>
+  </div>
+
+  <div class="note">
+    <span data-en>Videos are embedded directly from YouTube and open in a real YouTube tab if you tap "Watch on YouTube." Some folk dances don't yet have a linked video — more will be added over time.</span>
+    <span data-ta>வீடியோக்கள் யூடியூபில் இருந்து நேரடியாக இணைக்கப்பட்டுள்ளன, "யூடியூபில் காண" தட்டினால் உண்மையான யூடியூப் தாவலில் திறக்கும். சில நாட்டுப்புற நடனங்களுக்கு இன்னும் வீடியோ இணைக்கப்படவில்லை — காலப்போக்கில் மேலும் சேர்க்கப்படும்.</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'ci_lang';
+  var body = document.body;
+  var buttons = document.querySelectorAll('#langSwitch button');
+  function apply(lang){
+    body.classList.toggle('lang-ta', lang === 'ta');
+    document.documentElement.lang = lang;
+    buttons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-set-lang') === lang); });
+    try { localStorage.setItem(KEY, lang); } catch(e){}
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-set-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+  apply(saved === 'ta' ? 'ta' : 'en');
+})();
+
+(function(){
+  var frame = document.getElementById('ytFrame');
+  var titleEl = document.getElementById('playerTitle');
+  var openLink = document.getElementById('ytOpenLink');
+  var playerBox = document.getElementById('playerBox');
+  document.querySelectorAll('.dance-play').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var vid = btn.getAttribute('data-video');
+      var title = btn.getAttribute('data-title');
+      frame.src = 'https://www.youtube.com/embed/' + vid + '?autoplay=1';
+      titleEl.textContent = title;
+      openLink.href = 'https://www.youtube.com/watch?v=' + vid;
+      playerBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
+</body>
+</html>
