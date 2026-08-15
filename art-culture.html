@@ -41,6 +41,15 @@
   .dance-play:hover{background:var(--rani);}
   .martial-badge{margin-top:10px; font-size:0.8rem; color:var(--rani); font-weight:600;}
 
+  .inst-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:14px;}
+  .inst-card{background:#fff; border:1.5px solid var(--line); border-radius:var(--radius); padding:20px;}
+  .inst-name{font-family:'Sora',sans-serif; font-weight:600; color:var(--indigo); font-size:1.02rem;}
+  .inst-desc{font-size:0.85rem; opacity:0.7; margin-top:6px;}
+  .inst-play{margin-top:14px; background:linear-gradient(135deg,#833AB4,#E1306C,#FD1D1D); color:#fff; border:none; padding:9px 18px; border-radius:8px; font-size:0.85rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif;}
+  .inst-play:hover{opacity:0.9;}
+  .inst-embed{margin-top:16px;}
+  .inst-embed .ig-open{display:inline-flex; align-items:center; gap:6px; margin-top:10px; background:#111; color:#fff; padding:8px 15px; border-radius:8px; font-size:0.8rem; font-weight:600; text-decoration:none;}
+
   .note{margin-top:44px; padding:14px 18px; background:rgba(217,164,65,0.12); border-radius:8px; font-size:0.8rem; color:var(--indigo); opacity:0.9;}
   [data-ta]{display:none;}
   body.lang-ta [data-en]{display:none;}
@@ -75,6 +84,16 @@
     <div class="player-info">
       <div class="player-title"><span class="tag"><span data-en>Now playing</span><span data-ta>இயங்குகிறது</span></span><span id="playerTitle">Bharatanatyam</span></div>
       <a class="yt-link" id="ytOpenLink" href="https://www.youtube.com/watch?v=JWhA3ldZcyY" target="_blank" rel="noopener">▶ <span data-en>Watch on YouTube</span><span data-ta>யூடியூபில் காண</span></a>
+    </div>
+  </div>
+
+  <h2><span data-en>Institutes &amp; creators</span><span data-ta>நிறுவனங்கள் &amp; உருவாக்குநர்கள்</span></h2>
+  <div class="inst-grid">
+    <div class="inst-card">
+      <div class="inst-name"><span data-en>Tapasyamritam Institute</span><span data-ta>தபஸ்யாம்ரிதம் நிறுவனம்</span></div>
+      <div class="inst-desc"><span data-en>Dance performances and training reels shared by the institute on Instagram.</span><span data-ta>நிறுவனம் இன்ஸ்டாகிராமில் பகிரும் நடன நிகழ்ச்சிகள் &amp; பயிற்சி ரீல்கள்.</span></div>
+      <button type="button" class="inst-play" id="tapasyamritamPlay">▶ <span data-en>Play here</span><span data-ta>இங்கே இயக்கு</span></button>
+      <div class="inst-embed" id="tapasyamritamEmbed"></div>
     </div>
   </div>
 
@@ -245,6 +264,32 @@
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch(e){}
   apply(saved === 'ta' ? 'ta' : 'en');
+})();
+
+(function(){
+  // Instagram reel embed — loads embed.js once, inserts the blockquote on click,
+  // then asks Instagram to render it into an iframe in place.
+  var REEL_URL = "https://www.instagram.com/tapasyamritamdance/reel/Db4TbTazvLm/";
+  var btn = document.getElementById('tapasyamritamPlay');
+  var box = document.getElementById('tapasyamritamEmbed');
+  if(!btn || !box) return;
+  var scriptLoaded = false;
+  function ensureScript(cb){
+    if(scriptLoaded){ cb(); return; }
+    var s = document.createElement('script');
+    s.src = "https://www.instagram.com/embed.js";
+    s.async = true;
+    s.onload = function(){ scriptLoaded = true; cb(); };
+    document.body.appendChild(s);
+  }
+  btn.addEventListener('click', function(){
+    box.innerHTML =
+      '<blockquote class="instagram-media" data-instgrm-permalink="' + REEL_URL + '" data-instgrm-version="14" style="margin:0; max-width:540px; width:100%;"></blockquote>' +
+      '<a class="ig-open" href="' + REEL_URL + '" target="_blank" rel="noopener">📷 <span data-en>View on Instagram</span><span data-ta>இன்ஸ்டாகிராமில் காண</span></a>';
+    ensureScript(function(){
+      if(window.instgrm && window.instgrm.Embeds){ window.instgrm.Embeds.process(); }
+    });
+  });
 })();
 
 (function(){
